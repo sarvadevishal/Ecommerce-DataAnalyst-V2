@@ -1,0 +1,799 @@
+{
+  "project_ref": "wcbosypmsdvzfqrktsfk",
+  "project": "DATA-AGENT",
+  "database": "postgres",
+  "schema": "dev",
+  "generated": "2026-11-13",
+  "connector_role": "postgres",
+  "rls_enabled_all": true,
+  "views": [],
+  "mixed_case_identifiers": [],
+  "text_date_columns": [],
+  "tables": {
+    "ecommerce_countries": {
+      "grain": "One shipping market",
+      "pk": [
+        "country_id"
+      ],
+      "unique": [
+        [
+          "country_code"
+        ]
+      ],
+      "rows": 5,
+      "dates": {},
+      "columns": [
+        {
+          "name": "country_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "country_code",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "country_name",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "region",
+          "type": "text",
+          "nullable": false
+        }
+      ],
+      "foreign_keys": []
+    },
+    "ecommerce_channels": {
+      "grain": "One transaction channel",
+      "pk": [
+        "channel_id"
+      ],
+      "unique": [
+        [
+          "channel_name"
+        ]
+      ],
+      "rows": 3,
+      "dates": {},
+      "columns": [
+        {
+          "name": "channel_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "channel_name",
+          "type": "text",
+          "nullable": false
+        }
+      ],
+      "foreign_keys": []
+    },
+    "ecommerce_categories": {
+      "grain": "One product category",
+      "pk": [
+        "category_id"
+      ],
+      "unique": [
+        [
+          "category_name"
+        ]
+      ],
+      "rows": 5,
+      "dates": {},
+      "columns": [
+        {
+          "name": "category_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "category_name",
+          "type": "text",
+          "nullable": false
+        }
+      ],
+      "foreign_keys": []
+    },
+    "ecommerce_products": {
+      "grain": "One SKU",
+      "pk": [
+        "product_id"
+      ],
+      "unique": [
+        [
+          "sku"
+        ]
+      ],
+      "rows": 60,
+      "dates": {},
+      "columns": [
+        {
+          "name": "product_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "sku",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "product_name",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "category_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "brand",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "list_price_usd",
+          "type": "numeric",
+          "nullable": false
+        },
+        {
+          "name": "current_unit_cost_usd",
+          "type": "numeric",
+          "nullable": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "column": "category_id",
+          "references": "ecommerce_categories.category_id"
+        }
+      ]
+    },
+    "ecommerce_members": {
+      "grain": "One registered customer (PII)",
+      "pk": [
+        "member_id"
+      ],
+      "unique": [
+        [
+          "email"
+        ]
+      ],
+      "rows": 1500,
+      "dates": {
+        "joined_date": [
+          "2024-07-01",
+          "2026-05-30"
+        ]
+      },
+      "pii": [
+        "member_id",
+        "member_name",
+        "email"
+      ],
+      "columns": [
+        {
+          "name": "member_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "member_name",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "email",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "joined_date",
+          "type": "date",
+          "nullable": false
+        },
+        {
+          "name": "country_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "membership_tier",
+          "type": "text",
+          "nullable": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "column": "country_id",
+          "references": "ecommerce_countries.country_id"
+        }
+      ]
+    },
+    "ecommerce_orders": {
+      "grain": "One order",
+      "pk": [
+        "order_id"
+      ],
+      "unique": [
+        [
+          "order_number"
+        ]
+      ],
+      "rows": 6849,
+      "dates": {
+        "order_date": [
+          "2025-01-01",
+          "2026-10-31"
+        ]
+      },
+      "checks": [
+        "order_status in (completed, cancelled)",
+        "currency_code = USD",
+        "shipping_fee_usd >= 0",
+        "fulfillment_cost_usd >= 0"
+      ],
+      "pii": [
+        "member_id",
+        "order_number"
+      ],
+      "columns": [
+        {
+          "name": "order_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "order_number",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "member_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "shipping_country_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "channel_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "order_date",
+          "type": "date",
+          "nullable": false
+        },
+        {
+          "name": "order_status",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "shipping_fee_usd",
+          "type": "numeric",
+          "nullable": false
+        },
+        {
+          "name": "fulfillment_cost_usd",
+          "type": "numeric",
+          "nullable": false
+        },
+        {
+          "name": "currency_code",
+          "type": "text",
+          "nullable": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "column": "member_id",
+          "references": "ecommerce_members.member_id"
+        },
+        {
+          "column": "shipping_country_id",
+          "references": "ecommerce_countries.country_id"
+        },
+        {
+          "column": "channel_id",
+          "references": "ecommerce_channels.channel_id"
+        }
+      ]
+    },
+    "ecommerce_order_items": {
+      "grain": "One SKU per order",
+      "pk": [
+        "order_item_id"
+      ],
+      "unique": [
+        [
+          "order_id",
+          "product_id"
+        ]
+      ],
+      "rows": 17290,
+      "dates": {},
+      "checks": [
+        "quantity > 0",
+        "unit_price_usd > 0",
+        "unit_cost_usd >= 0",
+        "tax_usd >= 0",
+        "0 <= discount_usd <= quantity*unit_price_usd"
+      ],
+      "columns": [
+        {
+          "name": "order_item_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "order_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "product_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "quantity",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "unit_price_usd",
+          "type": "numeric",
+          "nullable": false
+        },
+        {
+          "name": "discount_usd",
+          "type": "numeric",
+          "nullable": false
+        },
+        {
+          "name": "unit_cost_usd",
+          "type": "numeric",
+          "nullable": false
+        },
+        {
+          "name": "tax_usd",
+          "type": "numeric",
+          "nullable": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "column": "order_id",
+          "references": "ecommerce_orders.order_id"
+        },
+        {
+          "column": "product_id",
+          "references": "ecommerce_products.product_id"
+        }
+      ]
+    },
+    "ecommerce_payments": {
+      "grain": "One cash event",
+      "pk": [
+        "payment_id"
+      ],
+      "unique": [],
+      "rows": 7659,
+      "dates": {
+        "payment_date": [
+          "2025-01-01",
+          "2026-10-31"
+        ]
+      },
+      "checks": [
+        "payment_type in (capture, refund)",
+        "amount_usd > 0"
+      ],
+      "columns": [
+        {
+          "name": "payment_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "order_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "payment_date",
+          "type": "date",
+          "nullable": false
+        },
+        {
+          "name": "payment_type",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "amount_usd",
+          "type": "numeric",
+          "nullable": false
+        },
+        {
+          "name": "payment_method",
+          "type": "text",
+          "nullable": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "column": "order_id",
+          "references": "ecommerce_orders.order_id"
+        }
+      ]
+    },
+    "ecommerce_returns": {
+      "grain": "One return event per order line (max one)",
+      "pk": [
+        "return_id"
+      ],
+      "unique": [
+        [
+          "order_item_id"
+        ]
+      ],
+      "rows": 1219,
+      "dates": {
+        "return_date": [
+          "2025-01-12",
+          "2026-10-31"
+        ]
+      },
+      "checks": [
+        "returned_quantity > 0",
+        "refunds >= 0",
+        "disposition = restocked"
+      ],
+      "columns": [
+        {
+          "name": "return_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "order_item_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "return_date",
+          "type": "date",
+          "nullable": false
+        },
+        {
+          "name": "returned_quantity",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "merchandise_refund_usd",
+          "type": "numeric",
+          "nullable": false
+        },
+        {
+          "name": "tax_refund_usd",
+          "type": "numeric",
+          "nullable": false
+        },
+        {
+          "name": "return_reason",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "disposition",
+          "type": "text",
+          "nullable": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "column": "order_item_id",
+          "references": "ecommerce_order_items.order_item_id"
+        }
+      ]
+    },
+    "ecommerce_shipments": {
+      "grain": "One shipment per completed order",
+      "pk": [
+        "shipment_id"
+      ],
+      "unique": [
+        [
+          "order_id"
+        ]
+      ],
+      "rows": 6543,
+      "dates": {
+        "shipped_date": [
+          "2025-01-02",
+          "2026-10-31"
+        ],
+        "promised_delivery_date": [
+          "2025-01-06",
+          "2026-11-05"
+        ],
+        "delivered_date": [
+          "2025-01-04",
+          "2026-10-31"
+        ]
+      },
+      "nulls": {
+        "shipped_date": 12,
+        "delivered_date": 67
+      },
+      "columns": [
+        {
+          "name": "shipment_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "order_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "shipped_date",
+          "type": "date",
+          "nullable": true
+        },
+        {
+          "name": "promised_delivery_date",
+          "type": "date",
+          "nullable": false
+        },
+        {
+          "name": "delivered_date",
+          "type": "date",
+          "nullable": true
+        },
+        {
+          "name": "carrier",
+          "type": "text",
+          "nullable": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "column": "order_id",
+          "references": "ecommerce_orders.order_id"
+        }
+      ]
+    },
+    "ecommerce_sales_targets": {
+      "grain": "Month x country x channel",
+      "pk": [
+        "month_start",
+        "country_id",
+        "channel_id"
+      ],
+      "unique": [],
+      "rows": 330,
+      "dates": {
+        "month_start": [
+          "2025-01-01",
+          "2026-10-01"
+        ]
+      },
+      "checks": [
+        "gross_margin_target between 0 and 1"
+      ],
+      "columns": [
+        {
+          "name": "month_start",
+          "type": "date",
+          "nullable": false
+        },
+        {
+          "name": "country_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "channel_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "net_sales_target_usd",
+          "type": "numeric",
+          "nullable": false
+        },
+        {
+          "name": "gross_margin_target",
+          "type": "numeric",
+          "nullable": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "column": "country_id",
+          "references": "ecommerce_countries.country_id"
+        },
+        {
+          "column": "channel_id",
+          "references": "ecommerce_channels.channel_id"
+        }
+      ]
+    },
+    "ecommerce_marketing_monthly": {
+      "grain": "Month x country x channel",
+      "pk": [
+        "month_start",
+        "country_id",
+        "channel_id"
+      ],
+      "unique": [],
+      "rows": 330,
+      "dates": {
+        "month_start": [
+          "2025-01-01",
+          "2026-10-01"
+        ]
+      },
+      "columns": [
+        {
+          "name": "month_start",
+          "type": "date",
+          "nullable": false
+        },
+        {
+          "name": "country_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "channel_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "marketing_spend_usd",
+          "type": "numeric",
+          "nullable": false
+        },
+        {
+          "name": "sessions",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "impressions",
+          "type": "integer",
+          "nullable": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "column": "country_id",
+          "references": "ecommerce_countries.country_id"
+        },
+        {
+          "column": "channel_id",
+          "references": "ecommerce_channels.channel_id"
+        }
+      ]
+    },
+    "ecommerce_operating_expenses": {
+      "grain": "Month x country",
+      "pk": [
+        "month_start",
+        "country_id"
+      ],
+      "unique": [],
+      "rows": 110,
+      "dates": {
+        "month_start": [
+          "2025-01-01",
+          "2026-10-01"
+        ]
+      },
+      "columns": [
+        {
+          "name": "month_start",
+          "type": "date",
+          "nullable": false
+        },
+        {
+          "name": "country_id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "fixed_operating_expense_usd",
+          "type": "numeric",
+          "nullable": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "column": "country_id",
+          "references": "ecommerce_countries.country_id"
+        }
+      ]
+    }
+  },
+  "domains": {
+    "order_status": {
+      "completed": 6543,
+      "cancelled": 306
+    },
+    "payment_type": {
+      "capture": 6543,
+      "refund": 1116
+    },
+    "payment_method": {
+      "Card": 2111,
+      "PayPal": 2204,
+      "Wallet": 2228,
+      "Original payment": 1116
+    },
+    "carrier": {
+      "Carrier A": 2195,
+      "Carrier B": 2161,
+      "Carrier C": 2187
+    },
+    "membership_tier": {
+      "Gold": 458,
+      "Silver": 524,
+      "Standard": 518
+    },
+    "return_reason": {
+      "Changed mind": 431,
+      "Not as expected": 383,
+      "Size or fit": 405
+    },
+    "disposition": {
+      "restocked": 1219
+    },
+    "currency_code": {
+      "USD": 6849
+    },
+    "countries": {
+      "1": "US",
+      "2": "CA",
+      "3": "GB",
+      "4": "DE",
+      "5": "IN"
+    },
+    "channels": {
+      "1": "Website",
+      "2": "Mobile App",
+      "3": "Marketplace"
+    },
+    "categories": {
+      "1": "Electronics",
+      "2": "Home and Kitchen",
+      "3": "Fitness",
+      "4": "Beauty",
+      "5": "Apparel"
+    },
+    "brands_distinct": 6
+  },
+  "coverage": {
+    "orders_with_lines": 6849,
+    "orders_with_payments": 6543,
+    "orders_with_shipments": 6543,
+    "members_with_orders": 1427,
+    "products_sold": 60,
+    "target_months": 22,
+    "opex_months": 22
+  }
+}

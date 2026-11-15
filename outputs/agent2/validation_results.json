@@ -1,0 +1,400 @@
+{
+  "run_date": "2026-11-13",
+  "project_ref": "wcbosypmsdvzfqrktsfk",
+  "schema": "dev",
+  "summary": {
+    "checks_run": 55,
+    "passed": 49,
+    "failed": 0,
+    "warnings": 6
+  },
+  "checks": [
+    {
+      "id": "DUP01",
+      "name": "Duplicate order_id",
+      "table": "orders",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DUP02",
+      "name": "Duplicate order_number",
+      "table": "orders",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DUP03",
+      "name": "Duplicate order_item_id",
+      "table": "order_items",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DUP04",
+      "name": "Duplicate (order_id, product_id)",
+      "table": "order_items",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DUP05",
+      "name": "Duplicate payment_id",
+      "table": "payments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DUP06",
+      "name": "Orders with more than one capture",
+      "table": "payments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DUP07",
+      "name": "Orders with more than one refund",
+      "table": "payments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DUP08",
+      "name": "Order lines with more than one return",
+      "table": "returns",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DUP09",
+      "name": "Orders with more than one shipment",
+      "table": "shipments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DUP10",
+      "name": "Duplicate member email (case-insensitive, count only)",
+      "table": "members",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DUP11",
+      "name": "Duplicate SKU",
+      "table": "products",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DUP12",
+      "name": "Duplicate target grain",
+      "table": "sales_targets",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DUP13",
+      "name": "Duplicate marketing grain",
+      "table": "marketing_monthly",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DUP14",
+      "name": "Duplicate opex grain",
+      "table": "operating_expenses",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "ORP01",
+      "name": "Order lines without order",
+      "table": "order_items",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "ORP02",
+      "name": "Order lines without product",
+      "table": "order_items",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "ORP03",
+      "name": "Orders without member",
+      "table": "orders",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "ORP04",
+      "name": "Payments without order",
+      "table": "payments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "ORP05",
+      "name": "Returns without order line",
+      "table": "returns",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "ORP06",
+      "name": "Shipments without order",
+      "table": "shipments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "ORP07",
+      "name": "Orders without lines",
+      "table": "orders",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "BR01",
+      "name": "Cancelled orders with payments",
+      "table": "orders/payments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "BR02",
+      "name": "Cancelled orders with shipments",
+      "table": "orders/shipments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "BR03",
+      "name": "Returns on cancelled orders",
+      "table": "returns",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "BR04",
+      "name": "Completed orders without capture",
+      "table": "orders/payments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "BR05",
+      "name": "Completed orders without shipment",
+      "table": "orders/shipments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "BR06",
+      "name": "Returned qty above sold qty",
+      "table": "returns",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "BR07",
+      "name": "Refunds on orders without returns",
+      "table": "payments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "BR08",
+      "name": "Orders with returns but no refund",
+      "table": "payments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "BR09",
+      "name": "Merchandise refund above line net value",
+      "table": "returns",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "BR10",
+      "name": "Lines with unit cost above unit price",
+      "table": "order_items",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DT01",
+      "name": "Return before order date",
+      "table": "returns",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DT02",
+      "name": "Shipped before order date",
+      "table": "shipments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DT03",
+      "name": "Delivered before shipped",
+      "table": "shipments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DT04",
+      "name": "Delivered without shipped date",
+      "table": "shipments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DT05",
+      "name": "Payment before order date",
+      "table": "payments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DT06",
+      "name": "Capture date differs from order date",
+      "table": "payments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DT07",
+      "name": "Refund before earliest return",
+      "table": "payments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DT08",
+      "name": "Event dates after 2026-10-31 (excluding promised dates)",
+      "table": "all",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DT09",
+      "name": "Order before member joined",
+      "table": "orders",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "DT10",
+      "name": "Promised delivery before order date",
+      "table": "shipments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "REC01",
+      "name": "Capture = merchandise + tax + shipping per completed order (tolerance 0.01)",
+      "table": "payments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "REC02",
+      "name": "Refund = merchandise refund + tax refund per order (tolerance 0.01)",
+      "table": "payments",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "JN01",
+      "name": "Completed lines unchanged after return join (16,535 to 16,535)",
+      "table": "join",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "JN02",
+      "name": "Completed orders unchanged after shipment join (6,543 to 6,543)",
+      "table": "join",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "JN03",
+      "name": "Completed orders unchanged after aggregated payment join (6,543 to 6,543)",
+      "table": "join",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "JN04",
+      "name": "Every order cell has a target and every target cell has orders (330 of 330)",
+      "table": "join",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "CT01",
+      "name": "Exported datasets reproduce control totals exactly",
+      "table": "exports",
+      "failures": 0,
+      "result": "pass"
+    },
+    {
+      "id": "PRV01",
+      "name": "No member or order identifiers in exports",
+      "table": "exports",
+      "failures": 0,
+      "result": "pass"
+    }
+  ],
+  "warnings": [
+    {
+      "id": "NUL01",
+      "name": "Shipments with null shipped_date",
+      "count": 12,
+      "note": "Expected: all from orders on 2026-10-31. Excluded from ship-time metrics.",
+      "result": "warning"
+    },
+    {
+      "id": "NUL02",
+      "name": "Shipments with null delivered_date",
+      "count": 67,
+      "note": "Expected: orders from 2026-10-25 onward, in transit at snapshot. Excluded from delivery metrics.",
+      "result": "warning"
+    },
+    {
+      "id": "NUL03",
+      "name": "Undelivered shipments past promised date at snapshot",
+      "count": 1,
+      "note": "One shipment is overdue and undelivered. Not counted as late because delivery outcome is unknown.",
+      "result": "warning"
+    },
+    {
+      "id": "FAN01",
+      "name": "Raw payments joined to orders fan out 6,543 to 7,659 rows",
+      "count": 1116,
+      "note": "Confirms payments must be aggregated per order before any join.",
+      "result": "warning"
+    },
+    {
+      "id": "IMM01",
+      "name": "October 2026 return cohort immature",
+      "count": null,
+      "note": "Late-month returns not matured. Flag in return-rate comparisons.",
+      "result": "warning"
+    },
+    {
+      "id": "OPS01",
+      "name": "Late delivery share is high in every month",
+      "count": null,
+      "note": "About 40 percent of delivered shipments arrive after promise date. Data is consistent; business significance for Agent 3.",
+      "result": "warning"
+    }
+  ]
+}
