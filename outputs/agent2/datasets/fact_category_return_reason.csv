@@ -1,0 +1,16 @@
+category,return_reason,return_events,units_returned,merch_refunds
+Apparel,Changed mind,173,200,11510.09
+Apparel,Not as expected,160,177,10485.74
+Apparel,Size or fit,156,181,10704.50
+Beauty,Changed mind,54,59,2444.01
+Beauty,Not as expected,61,69,2962.97
+Beauty,Size or fit,57,64,2718.91
+Electronics,Changed mind,88,103,23826.84
+Electronics,Not as expected,67,80,17679.55
+Electronics,Size or fit,79,93,19419.38
+Fitness,Changed mind,65,78,4528.75
+Fitness,Not as expected,48,54,3321.52
+Fitness,Size or fit,44,53,3291.04
+Home and Kitchen,Changed mind,51,62,6039.16
+Home and Kitchen,Not as expected,47,57,5333.15
+Home and Kitchen,Size or fit,69,84,8039.00
