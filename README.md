@@ -2,6 +2,19 @@
 
 A five-agent ecommerce reporting pipeline built with Claude on a Supabase (Postgres 17) database. It turns the Summit Commerce sample dataset into a validated data dictionary, privacy-safe datasets, an executive report, a live dashboard and a grounded Q and A page.
 
+## Architecture
+
+![Summit Commerce agentic reporting architecture](docs/architecture.png)
+
+Source: [`docs/architecture.svg`](docs/architecture.svg)
+
+| Layer | What it does |
+|---|---|
+| 1. Data | Supabase Postgres 17, schema `dev`, 13 tables (dimensions, facts, monthly plans), reached through the Supabase MCP connector with SELECT-only queries |
+| 2. Orchestration | Five Claude agents run in sequence and hand off through files in `shared/` and `outputs/`; a reconciliation gate ties every stage back to Agent 2 control totals |
+| 3. Experience | Live Claude Data dashboard (queries at view time), Ask Finance assistant grounded on validated aggregates, executive report for the CEO, CFO and Sales Executive |
+| 4. Governance | Read-only by rule, privacy by design (no member-level data, minimum cell size 5), grain control, shared metric definitions, no invented data, human escalation |
+
 All data is synthetic sample data (fictional retailer "Summit Commerce", Jan 2025 to Oct 2026, USD). No real customer data is included, and no member names, emails or IDs appear in any output.
 
 ## Live artifacts

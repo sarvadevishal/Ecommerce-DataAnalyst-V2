@@ -1,0 +1,295 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f2f86"/><stop offset="1" stop-color="#16205a"/></linearGradient>
+    <linearGradient id="hdr" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#16205a"/><stop offset="1" stop-color="#2b3fae"/></linearGradient>
+    <filter id="sh" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#16205a" flood-opacity="0.10"/></filter>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#3d5af1"/></marker>
+    <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#14b8a6"/></marker>
+    <marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8a93b2"/></marker>
+  </defs>
+
+  <rect width="1800" height="1100" fill="#f6f8fd"/>
+
+  <!-- Title -->
+  <rect x="0" y="0" width="1800" height="96" fill="url(#hdr)"/>
+  <text x="40" y="44" font-size="28" font-weight="700" fill="#ffffff">Summit Commerce · Agentic Reporting Architecture</text>
+  <text x="40" y="74" font-size="15" fill="#c9d2ff">Five sequential Claude agents turn a Supabase ecommerce database into validated KPIs, a live executive dashboard and a grounded finance assistant</text>
+  <g transform="translate(1440,30)">
+    <rect width="320" height="38" rx="19" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.35"/>
+    <text x="160" y="25" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="600">Read-only · Privacy-safe · Reconciled</text>
+  </g>
+
+  <!-- Layer labels -->
+  <g font-size="12" font-weight="700" letter-spacing="1.5" fill="#5b6382">
+    <text x="40" y="132">1 · DATA LAYER</text>
+    <text x="420" y="132">2 · ORCHESTRATION · CLAUDE AGENT PIPELINE</text>
+    <text x="1400" y="132">3 · EXPERIENCE LAYER</text>
+  </g>
+
+  <!-- ============ DATA LAYER ============ -->
+  <rect x="40" y="146" width="340" height="590" rx="16" fill="#ffffff" stroke="#e1e5f2" filter="url(#sh)"/>
+  <g transform="translate(60,166)">
+    <rect width="300" height="74" rx="12" fill="url(#navy)"/>
+    <g transform="translate(18,18)" fill="none" stroke="#9fb0ff" stroke-width="2"><ellipse cx="17" cy="7" rx="17" ry="6"/><path d="M0 7v24c0 3.3 7.6 6 17 6s17-2.7 17-6V7M0 19c0 3.3 7.6 6 17 6s17-2.7 17-6"/></g>
+    <text x="68" y="32" font-size="17" font-weight="700" fill="#fff">Supabase · Postgres 17</text>
+    <text x="68" y="54" font-size="13" fill="#c9d2ff">Project DATA-AGENT · schema dev</text>
+  </g>
+  <g font-size="12" fill="#111a3a">
+    <text x="60" y="270" font-size="11" font-weight="700" fill="#8b5cf6" letter-spacing="1">DIMENSIONS</text>
+    <g transform="translate(60,280)">
+      <rect width="92" height="26" rx="13" fill="#f1ecff"/><text x="46" y="17" text-anchor="middle">countries</text>
+      <rect x="100" width="92" height="26" rx="13" fill="#f1ecff"/><text x="146" y="17" text-anchor="middle">channels</text>
+      <rect x="200" width="100" height="26" rx="13" fill="#f1ecff"/><text x="250" y="17" text-anchor="middle">categories</text>
+      <rect y="34" width="92" height="26" rx="13" fill="#f1ecff"/><text x="46" y="51" text-anchor="middle">products</text>
+      <rect x="100" y="34" width="200" height="26" rx="13" fill="#fff1f1" stroke="#f5b5b5"/><text x="200" y="51" text-anchor="middle">members (PII, never exported)</text>
+    </g>
+    <text x="60" y="370" font-size="11" font-weight="700" fill="#3d5af1" letter-spacing="1">FACTS</text>
+    <g transform="translate(60,380)">
+      <rect width="92" height="26" rx="13" fill="#e8edff"/><text x="46" y="17" text-anchor="middle">orders</text>
+      <rect x="100" width="200" height="26" rx="13" fill="#e8edff"/><text x="200" y="17" text-anchor="middle">order_items · hist. price, cost</text>
+      <rect y="34" width="92" height="26" rx="13" fill="#e8edff"/><text x="46" y="51" text-anchor="middle">payments</text>
+      <rect x="100" y="34" width="92" height="26" rx="13" fill="#e8edff"/><text x="146" y="51" text-anchor="middle">returns</text>
+      <rect x="200" y="34" width="100" height="26" rx="13" fill="#e8edff"/><text x="250" y="51" text-anchor="middle">shipments</text>
+    </g>
+    <text x="60" y="470" font-size="11" font-weight="700" fill="#0d9488" letter-spacing="1">PLANS (MONTHLY GRAIN)</text>
+    <g transform="translate(60,480)">
+      <rect width="300" height="26" rx="13" fill="#dcfaf3"/><text x="150" y="17" text-anchor="middle">sales_targets · month × market × channel</text>
+      <rect y="34" width="300" height="26" rx="13" fill="#dcfaf3"/><text x="150" y="51" text-anchor="middle">marketing_monthly · month × market × channel</text>
+      <rect y="68" width="300" height="26" rx="13" fill="#dcfaf3"/><text x="150" y="85" text-anchor="middle">operating_expenses · month × market</text>
+    </g>
+  </g>
+  <g transform="translate(60,600)">
+    <rect width="300" height="40" rx="10" fill="#f6f8fd" stroke="#e1e5f2"/>
+    <text x="150" y="25" text-anchor="middle" font-size="13" fill="#5b6382"><tspan font-weight="700" fill="#111a3a">13 tables</tspan> · 6,849 orders · 17,290 lines · USD</text>
+  </g>
+  <g transform="translate(60,656)">
+    <rect width="300" height="60" rx="12" fill="#ffffff" stroke="#3d5af1" stroke-width="1.5"/>
+    <text x="150" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#111a3a">Supabase MCP connector</text>
+    <text x="150" y="45" text-anchor="middle" font-size="12" fill="#5b6382">execute_sql · SELECT / WITH only</text>
+  </g>
+
+  <!-- ============ ORCHESTRATION ============ -->
+  <rect x="420" y="146" width="940" height="590" rx="16" fill="#ffffff" stroke="#e1e5f2" filter="url(#sh)"/>
+  <text x="444" y="178" font-size="13" fill="#5b6382">Sequential handoffs through files, never chat. Each agent starts only when the previous status is complete.</text>
+
+  <!-- agent cards: x = 440 + i*184, width 168 -->
+  <g font-size="12" fill="#3a4266">
+    <!-- A1 -->
+    <g transform="translate(440,196)">
+      <rect width="168" height="250" rx="14" fill="#fbfbff" stroke="#d9def0"/>
+      <rect width="168" height="6" rx="3" fill="#8b5cf6"/>
+      <circle cx="26" cy="36" r="15" fill="#8b5cf6"/><text x="26" y="41" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">1</text>
+      <text x="50" y="33" font-size="14" font-weight="700" fill="#111a3a">Schema &amp;</text>
+      <text x="50" y="50" font-size="14" font-weight="700" fill="#111a3a">Dictionary</text>
+      <text x="14" y="82">• Live catalog: keys, FKs</text>
+      <text x="14" y="102">• Exact counts, date ranges</text>
+      <text x="14" y="122">• Docs vs DB gaps found</text>
+      <text x="14" y="142">  (schema dev, no views)</text>
+      <rect x="12" y="196" width="144" height="40" rx="8" fill="#f1ecff"/>
+      <text x="84" y="214" text-anchor="middle" font-size="11" font-weight="700" fill="#5b3fd6">schema.json</text>
+      <text x="84" y="229" text-anchor="middle" font-size="11" fill="#5b3fd6">DATA_DICTIONARY.md</text>
+    </g>
+    <!-- A2 -->
+    <g transform="translate(624,196)">
+      <rect width="168" height="250" rx="14" fill="#fbfbff" stroke="#d9def0"/>
+      <rect width="168" height="6" rx="3" fill="#3d5af1"/>
+      <circle cx="26" cy="36" r="15" fill="#3d5af1"/><text x="26" y="41" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">2</text>
+      <text x="50" y="33" font-size="14" font-weight="700" fill="#111a3a">Validate &amp;</text>
+      <text x="50" y="50" font-size="14" font-weight="700" fill="#111a3a">Aggregate</text>
+      <text x="14" y="82">• 49 checks · 0 failures</text>
+      <text x="14" y="102">• Payments reconcile $0.00</text>
+      <text x="14" y="122">• Fan-out guarded joins</text>
+      <text x="14" y="142">• PII-free, min cell 5</text>
+      <rect x="12" y="196" width="144" height="40" rx="8" fill="#e8edff"/>
+      <text x="84" y="214" text-anchor="middle" font-size="11" font-weight="700" fill="#2b3fae">8 aggregate datasets</text>
+      <text x="84" y="229" text-anchor="middle" font-size="11" fill="#2b3fae">control_totals.json</text>
+    </g>
+    <!-- A3 -->
+    <g transform="translate(808,196)">
+      <rect width="168" height="250" rx="14" fill="#fbfbff" stroke="#d9def0"/>
+      <rect width="168" height="6" rx="3" fill="#0ea5e9"/>
+      <circle cx="26" cy="36" r="15" fill="#0ea5e9"/><text x="26" y="41" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">3</text>
+      <text x="50" y="33" font-size="14" font-weight="700" fill="#111a3a">KPIs &amp;</text>
+      <text x="50" y="50" font-size="14" font-weight="700" fill="#111a3a">Insights</text>
+      <text x="14" y="82">• YoY on matching months</text>
+      <text x="14" y="102">• CEO · CFO · Sales views</text>
+      <text x="14" y="122">• Segments, exceptions</text>
+      <text x="14" y="142">• Hypotheses labeled</text>
+      <rect x="12" y="196" width="144" height="40" rx="8" fill="#e0f4fd"/>
+      <text x="84" y="214" text-anchor="middle" font-size="11" font-weight="700" fill="#0369a1">kpis.json</text>
+      <text x="84" y="229" text-anchor="middle" font-size="11" fill="#0369a1">EXECUTIVE_REPORT.md</text>
+    </g>
+    <!-- A4 -->
+    <g transform="translate(992,196)">
+      <rect width="168" height="250" rx="14" fill="#fbfbff" stroke="#d9def0"/>
+      <rect width="168" height="6" rx="3" fill="#14b8a6"/>
+      <circle cx="26" cy="36" r="15" fill="#14b8a6"/><text x="26" y="41" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">4</text>
+      <text x="50" y="33" font-size="14" font-weight="700" fill="#111a3a">Live</text>
+      <text x="50" y="50" font-size="14" font-weight="700" fill="#111a3a">Dashboard</text>
+      <text x="14" y="82">• 9 read-only live queries</text>
+      <text x="14" y="102">• Calcs traced per number</text>
+      <text x="14" y="122">• Filters: period, market,</text>
+      <text x="14" y="142">  channel · 6 sections</text>
+      <text x="14" y="162">• Render check: passed</text>
+      <rect x="12" y="196" width="144" height="40" rx="8" fill="#dcfaf3"/>
+      <text x="84" y="214" text-anchor="middle" font-size="11" font-weight="700" fill="#0f766e">Claude Data artifact</text>
+      <text x="84" y="229" text-anchor="middle" font-size="11" fill="#0f766e">QA.md</text>
+    </g>
+    <!-- A5 -->
+    <g transform="translate(1176,196)">
+      <rect width="168" height="250" rx="14" fill="#fbfbff" stroke="#d9def0"/>
+      <rect width="168" height="6" rx="3" fill="#f59e0b"/>
+      <circle cx="26" cy="36" r="15" fill="#f59e0b"/><text x="26" y="41" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">5</text>
+      <text x="50" y="33" font-size="14" font-weight="700" fill="#111a3a">Ask</text>
+      <text x="50" y="50" font-size="14" font-weight="700" fill="#111a3a">Finance</text>
+      <text x="14" y="82">• Claude sample capability</text>
+      <text x="14" y="102">• Aggregate data only</text>
+      <text x="14" y="122">• PII guard, refusals</text>
+      <text x="14" y="142">• Snapshot labeled</text>
+      <rect x="12" y="196" width="144" height="40" rx="8" fill="#fff4dc"/>
+      <text x="84" y="214" text-anchor="middle" font-size="11" font-weight="700" fill="#a16207">chat_context.json</text>
+      <text x="84" y="229" text-anchor="middle" font-size="11" fill="#a16207">Chat artifact</text>
+    </g>
+  </g>
+  <!-- arrows between agents -->
+  <g stroke="#3d5af1" stroke-width="2.5" fill="none" marker-end="url(#ar)">
+    <path d="M608 321H622"/><path d="M792 321H806"/><path d="M976 321H990"/><path d="M1160 321H1174"/>
+  </g>
+
+  <!-- state bus -->
+  <g stroke="#b6bfdc" stroke-width="1.5" stroke-dasharray="4 4">
+    <path d="M524 446V486"/><path d="M708 446V486"/><path d="M892 446V486"/><path d="M1076 446V486"/><path d="M1260 446V486"/>
+  </g>
+  <g transform="translate(440,486)">
+    <rect width="904" height="84" rx="12" fill="#16205a"/>
+    <text x="20" y="28" font-size="13" font-weight="700" fill="#ffffff" letter-spacing="1">SHARED STATE · shared/</text>
+    <text x="20" y="48" font-size="12" fill="#c9d2ff">Single source of truth for</text>
+    <text x="20" y="66" font-size="12" fill="#c9d2ff">status, decisions, handoffs</text>
+    <g font-size="12" fill="#ffffff" text-anchor="middle">
+      <rect x="226" y="24" width="122" height="36" rx="8" fill="#2b3fae"/><text x="287" y="47">PIPELINE_STATUS</text>
+      <rect x="358" y="24" width="122" height="36" rx="8" fill="#2b3fae"/><text x="419" y="47">DECISIONS (27)</text>
+      <rect x="490" y="24" width="122" height="36" rx="8" fill="#2b3fae"/><text x="551" y="47">ESCALATIONS</text>
+      <rect x="622" y="24" width="122" height="36" rx="8" fill="#2b3fae"/><text x="683" y="47">HANDOFFS</text>
+      <rect x="754" y="24" width="136" height="36" rx="8" fill="#2b3fae"/><text x="822" y="47">METRIC_DEFINITIONS</text>
+    </g>
+  </g>
+
+  <!-- reconciliation gate -->
+  <g transform="translate(440,590)">
+    <rect width="904" height="126" rx="12" fill="#f6f8fd" stroke="#e1e5f2"/>
+    <g transform="translate(24,63)"><path d="M0 -34L34 0L0 34L-34 0z" transform="translate(34,0)" fill="#14b8a6"/><text x="34" y="5" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">GATE</text></g>
+    <text x="110" y="40" font-size="15" font-weight="700" fill="#111a3a">Reconciliation gate between every stage</text>
+    <text x="110" y="64" font-size="13" fill="#3a4266">Every downstream number must tie back to Agent 2 control totals before handoff.</text>
+    <g font-size="12" fill="#111a3a">
+      <rect x="110" y="80" width="196" height="30" rx="15" fill="#ffffff" stroke="#c9eedc"/><text x="208" y="100" text-anchor="middle">Net sales $1,904,880.71 ✓</text>
+      <rect x="316" y="80" width="186" height="30" rx="15" fill="#ffffff" stroke="#c9eedc"/><text x="409" y="100" text-anchor="middle">Captures $2,287,410.51 ✓</text>
+      <rect x="512" y="80" width="170" height="30" rx="15" fill="#ffffff" stroke="#c9eedc"/><text x="597" y="100" text-anchor="middle">Refunds $146,904.95 ✓</text>
+      <rect x="692" y="80" width="190" height="30" rx="15" fill="#ffffff" stroke="#c9eedc"/><text x="787" y="100" text-anchor="middle">9 live queries = controls ✓</text>
+    </g>
+  </g>
+
+  <!-- ============ EXPERIENCE LAYER ============ -->
+  <rect x="1400" y="146" width="360" height="590" rx="16" fill="#ffffff" stroke="#e1e5f2" filter="url(#sh)"/>
+  <!-- Dashboard -->
+  <g transform="translate(1420,166)">
+    <rect width="320" height="200" rx="12" fill="#f6f8fd" stroke="#d9def0"/>
+    <rect x="12" y="12" width="296" height="104" rx="8" fill="#ffffff" stroke="#e1e5f2"/>
+    <rect x="12" y="12" width="52" height="104" rx="8" fill="#16205a"/>
+    <g fill="#3d5af1">
+      <rect x="76" y="24" width="48" height="22" rx="4" fill="#ecebff"/><rect x="130" y="24" width="48" height="22" rx="4" fill="#dcfaf3"/><rect x="184" y="24" width="48" height="22" rx="4" fill="#e3efff"/><rect x="238" y="24" width="58" height="22" rx="4" fill="#fff2db"/>
+      <rect x="80" y="86" width="14" height="22"/><rect x="100" y="78" width="14" height="30"/><rect x="120" y="82" width="14" height="26"/><rect x="140" y="72" width="14" height="36"/><rect x="160" y="66" width="14" height="42"/>
+    </g>
+    <path d="M86 70L106 64L126 66L146 58L166 54" stroke="#8b5cf6" stroke-width="2" fill="none"/>
+    <path d="M190 104h100M190 92h80M190 80h96M190 68h60" stroke="#d9def0" stroke-width="6" stroke-linecap="round"/>
+    <text x="16" y="142" font-size="15" font-weight="700" fill="#111a3a">Live executive dashboard</text>
+    <text x="16" y="162" font-size="12" fill="#3a4266">Claude Data artifact · queries run at view time</text>
+    <text x="16" y="180" font-size="12" fill="#3a4266">with each viewer's own Supabase access</text>
+  </g>
+  <!-- Ask Finance -->
+  <g transform="translate(1420,382)">
+    <rect width="320" height="120" rx="12" fill="#f6f8fd" stroke="#d9def0"/>
+    <rect x="14" y="16" width="186" height="26" rx="13" fill="#3d5af1"/><text x="107" y="34" text-anchor="middle" font-size="11" fill="#fff">Which market missed target?</text>
+    <rect x="44" y="48" width="180" height="26" rx="13" fill="#ffffff" stroke="#e1e5f2"/><text x="134" y="66" text-anchor="middle" font-size="11" fill="#111a3a">Canada: 85.8% of target...</text>
+    <text x="16" y="96" font-size="15" font-weight="700" fill="#111a3a">Ask Finance assistant</text>
+    <text x="16" y="113" font-size="12" fill="#3a4266">Consent-based Claude calls · no credentials</text>
+  </g>
+  <!-- Report -->
+  <g transform="translate(1420,518)">
+    <rect width="320" height="70" rx="12" fill="#f6f8fd" stroke="#d9def0"/>
+    <g transform="translate(16,16)" fill="none" stroke="#0ea5e9" stroke-width="2"><path d="M2 0h18l8 8v30H2z"/><path d="M8 16h14M8 23h14M8 30h10"/></g>
+    <text x="58" y="31" font-size="15" font-weight="700" fill="#111a3a">Executive report</text>
+    <text x="58" y="51" font-size="12" fill="#3a4266">Findings, actions, limitations</text>
+  </g>
+  <!-- Users -->
+  <text x="1420" y="620" font-size="11" font-weight="700" letter-spacing="1" fill="#5b6382">DECISION MAKERS</text>
+  <g transform="translate(1420,632)" font-size="13" font-weight="600" fill="#111a3a" text-anchor="middle">
+    <rect width="96" height="84" rx="12" fill="#ecebff"/><circle cx="48" cy="28" r="12" fill="#8b5cf6"/><path d="M28 62c2-12 10-18 20-18s18 6 20 18" fill="#8b5cf6"/><text x="48" y="78" font-size="12">CEO</text>
+    <rect x="112" width="96" height="84" rx="12" fill="#e3efff"/><circle cx="160" cy="28" r="12" fill="#3d5af1"/><path d="M140 62c2-12 10-18 20-18s18 6 20 18" fill="#3d5af1"/><text x="160" y="78" font-size="12">CFO</text>
+    <rect x="224" width="96" height="84" rx="12" fill="#dcfaf3"/><circle cx="272" cy="28" r="12" fill="#14b8a6"/><path d="M252 62c2-12 10-18 20-18s18 6 20 18" fill="#14b8a6"/><text x="272" y="78" font-size="12">Sales Exec</text>
+  </g>
+
+  <!-- ============ FLOWS ============ -->
+  <!-- connector -> pipeline (metadata + SELECT) -->
+  <path d="M360 686H400V321H436" stroke="#3d5af1" stroke-width="2.5" fill="none" marker-end="url(#ar)"/>
+  <rect x="390" y="430" width="20" height="150" rx="10" fill="#f6f8fd"/>
+  <text transform="translate(405,505) rotate(-90)" text-anchor="middle" font-size="11" font-weight="700" fill="#2b3fae">metadata + SELECT</text>
+  <!-- live queries from connector to dashboard at view time -->
+  <path d="M210 716V760H1380V266H1416" stroke="#14b8a6" stroke-width="2.5" stroke-dasharray="8 6" fill="none" marker-end="url(#arg)"/>
+  <rect x="760" y="746" width="280" height="28" rx="14" fill="#ffffff" stroke="#14b8a6"/>
+  <text x="900" y="765" text-anchor="middle" font-size="12" font-weight="700" fill="#0f766e">Live read-only queries at view time</text>
+  <!-- agent 3 -> report, agent 5 -> ask finance -->
+  <path d="M892 446V460H1370V553H1416" stroke="#8a93b2" stroke-width="1.8" fill="none" marker-end="url(#arm)" opacity="0.9"/>
+  <path d="M1344 360H1386V442H1416" stroke="#3d5af1" stroke-width="2.5" fill="none" marker-end="url(#ar)"/>
+  <path d="M1160 250H1184" stroke="none"/>
+
+  <!-- ============ GUARDRAILS ============ -->
+  <text x="40" y="812" font-size="12" font-weight="700" letter-spacing="1.5" fill="#5b6382">4 · GOVERNANCE &amp; GUARDRAILS (ENFORCED IN EVERY AGENT)</text>
+  <g font-size="12" fill="#3a4266">
+    <g transform="translate(40,826)">
+      <rect width="278" height="132" rx="14" fill="#ffffff" stroke="#e1e5f2" filter="url(#sh)"/>
+      <rect width="6" height="132" rx="3" fill="#3d5af1"/>
+      <text x="22" y="32" font-size="15" font-weight="700" fill="#111a3a">Read-only by rule</text>
+      <text x="22" y="56">SELECT / WITH only. No DDL,</text><text x="22" y="74">writes, migrations or branches.</text><text x="22" y="92">Every query saved in queries/.</text>
+    </g>
+    <g transform="translate(334,826)">
+      <rect width="278" height="132" rx="14" fill="#ffffff" stroke="#e1e5f2" filter="url(#sh)"/>
+      <rect width="6" height="132" rx="3" fill="#ef4444"/>
+      <text x="22" y="32" font-size="15" font-weight="700" fill="#111a3a">Privacy by design</text>
+      <text x="22" y="56">No names, emails or IDs leave</text><text x="22" y="74">the database. Member counts</text><text x="22" y="92">under 5 are withheld.</text>
+    </g>
+    <g transform="translate(628,826)">
+      <rect width="278" height="132" rx="14" fill="#ffffff" stroke="#e1e5f2" filter="url(#sh)"/>
+      <rect width="6" height="132" rx="3" fill="#8b5cf6"/>
+      <text x="22" y="32" font-size="15" font-weight="700" fill="#111a3a">Grain control</text>
+      <text x="22" y="56">Payments, returns, shipments</text><text x="22" y="74">rolled up before joins. Targets</text><text x="22" y="92">summed once at native grain.</text>
+    </g>
+    <g transform="translate(922,826)">
+      <rect width="278" height="132" rx="14" fill="#ffffff" stroke="#e1e5f2" filter="url(#sh)"/>
+      <rect width="6" height="132" rx="3" fill="#0ea5e9"/>
+      <text x="22" y="32" font-size="15" font-weight="700" fill="#111a3a">Business rules</text>
+      <text x="22" y="56">Cancelled orders excluded.</text><text x="22" y="74">Historical unit price and cost.</text><text x="22" y="92">One shared metric dictionary.</text>
+    </g>
+    <g transform="translate(1216,826)">
+      <rect width="250" height="132" rx="14" fill="#ffffff" stroke="#e1e5f2" filter="url(#sh)"/>
+      <rect width="6" height="132" rx="3" fill="#14b8a6"/>
+      <text x="22" y="32" font-size="15" font-weight="700" fill="#111a3a">No invented data</text>
+      <text x="22" y="56">Findings cite a number and</text><text x="22" y="74">source. Causes are labeled</text><text x="22" y="92">as hypotheses.</text>
+    </g>
+    <g transform="translate(1482,826)">
+      <rect width="278" height="132" rx="14" fill="#ffffff" stroke="#e1e5f2" filter="url(#sh)"/>
+      <rect width="6" height="132" rx="3" fill="#f59e0b"/>
+      <text x="22" y="32" font-size="15" font-weight="700" fill="#111a3a">Human in the loop</text>
+      <text x="22" y="56">Escalate only for access loss,</text><text x="22" y="74">privacy conflict or undefined</text><text x="22" y="92">headline metric decisions.</text>
+    </g>
+  </g>
+
+  <!-- Footer legend -->
+  <g transform="translate(40,996)" font-size="12" fill="#5b6382">
+    <path d="M0 10H40" stroke="#3d5af1" stroke-width="2.5" marker-end="url(#ar)"/><text x="50" y="14">Build-time data flow</text>
+    <path d="M200 10H240" stroke="#14b8a6" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#arg)"/><text x="250" y="14">Live query at view time</text>
+    <path d="M420 10H460" stroke="#b6bfdc" stroke-width="1.5" stroke-dasharray="4 4"/><text x="470" y="14">Reads and writes shared state</text>
+    <text x="1720" y="14" text-anchor="end">Synthetic sample data · Jan 2025 to Oct 2026 · USD · Versioned in GitHub</text>
+  </g>
+  <rect x="40" y="1036" width="1720" height="1" fill="#e1e5f2"/>
+  <text x="40" y="1066" font-size="12" fill="#8a93b2">Stack: Claude (agents, Data dashboard artifact, sample capability) · Supabase Postgres 17 via MCP · d3 v7 · Python · SQL</text>
+</svg>
